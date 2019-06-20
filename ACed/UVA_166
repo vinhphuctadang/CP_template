@@ -1,4 +1,20 @@
 // Read the problem on UVA (code 166) first
+
+/*
+>>> This is a kind of DP problem
+My solution:
+Since the shop keeper has adequate types of money (i.e. enough coins of 5, 10, ...) to change back, then first calculate solution for exchange money j in to coins, which I have stored in F[i][x] (use the categories of [0..i] to change money which amount was given by j)
+This can be done with simple DP approach
+
+Now, with the goods' price (let's denote n), do a simple bruteforce that tries all the possible sum of money, then we can incur result = min {total coin = F[5][sum-n] + used_coin_to_create_sum} (see the code for clarification}
+But the solution will result in a TLE verdict. LOL
+A little trick is that terminate the "bruteforce" searching early by check whether the total_coin_to_make_sum > current "result" (Branching and Bound, alike)
+
+The solution below could be optimized (especially in memmory allocating)
+*/
+
+
+// Code has been shown beblow
 #include <bits/stdc++.h>
 #define ll long long
 #define ull unsigned ll
@@ -36,7 +52,7 @@ void compute () {
 }
 
 void brute (int i, int k, int sum) {
-	if (k>result)
+	if (k>result) // Termiate
 		return;
 	if (i>5) {
 		if (sum>=n) result = min (result, k+F[5][sum-n]);
