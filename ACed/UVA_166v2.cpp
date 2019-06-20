@@ -1,5 +1,5 @@
 // Version 2 of the problem code 166 on UVA
-// The second idea: Store the optimized amount of coins to changes money j in F[i][j] and G[i][j]. The only distinction is that F has been build from unlimited money resource whilst G hasn't
+// The second idea: Store the optimized amount of coins to change money j in F[i][j] and G[i][j]. The only distinction is that F has been build from unlimited money resource whilst G hasn't
 // Finally, the result is came up with the sum of F[5][x] + G[5][x]. where the expected money given by x; the solution is only feasible when the maximum payable money is "tiny" enough
 #include <bits/stdc++.h>
 #define ll long long
