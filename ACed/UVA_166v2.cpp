@@ -1,3 +1,6 @@
+// Version 2 of the problem code 166 on UVA
+// The second idea: Store the optimized amount of coins to changes money j in F[i][j] and G[i][j]. The only distinction is that F has been build from unlimited money resource whilst G hasn't
+// Finally, the result is came up with the sum of F[5][x] + G[5][x]. where the expected money given by x; the solution is only feasible when the maximum payable money is "tiny" enough
 #include <bits/stdc++.h>
 #define ll long long
 #define ull unsigned ll
@@ -22,7 +25,7 @@ int G[11][MAXN];
 int result = oo;
 int n;
 
-void compute () {
+void compute () { // build the F table where minimum number of coin used to change money j is stored
 	FOR (j, 0, MAXN) 
  		if (j % a[0] == 0) F[0][j] = j/a[0]; else F[0][j] = oo;
  	FOR (i, 1, 6) {
@@ -35,7 +38,7 @@ void compute () {
  	}
 }
 
-void limit () {
+void limit () { // Then build G, but with a given bound - number [i]
 
 	FOR (j, 0, sum+1)
 		if (j % a[0] == 0 && j/a[0] <= number[0]) G[0][j] = j/a[0]; else G[0][j] = oo;
@@ -77,12 +80,10 @@ int main () {
 
 		n = pre*100+post;
 		result = oo;
-		limit ();
+		limit (); // compute the G[i][j] again when bound is refresh (i.e. new test case)
 
-		// printf ("%d ", G[0][20]);
-		FOR (i,n, sum+1) {
-			// printf ("%d %d %d\n", i, G[5][i], F[5][i-n]);
-			result = min (result, G[5][i] + F[5][i-n]);
+		FOR (i,n, sum+1) {			
+			result = min (result, G[5][i] + F[5][i-n]); // collect all possible result and look for a min
 		}
 		printf ("%3d\n", result);
 	}	
