@@ -2,8 +2,9 @@
 # from collections import deque # for using deque
 # # deque append, appendleft, pop, popleft
 # from queue import PriorityQueue
-# from bisect import bisect_left as lower_bound, bisect_right as upper_bound
-# array
+# from bisect import bisect_left as lower_bound, bisect_right as upper_bound # C/C++ liked function
+# array generation, e.g: __array(10, 5) stands for: int a[10][5], support multi-dimensional array (list-likelihood)
+
 def __array (*arg):
 	if len (arg) == 0:
 		return 0
