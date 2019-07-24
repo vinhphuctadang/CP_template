@@ -22,7 +22,7 @@ Sorry for leaving the caution here
 Template for Competitive Programming with Python 3.x
 Template is under no license, so do not hesitate to use, 
 but I have no intention to take responsibilty of any problems occured
-Uncomment below lines to import (do not encourage to import all, had better be needs)
+Uncomment above lines to import (do not encourage to import all, had better be needs)
 PEACE
 
 Contact me via gmail:
