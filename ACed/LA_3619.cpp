@@ -23,7 +23,9 @@ using namespace std;
 ll F[1302][1302][15];
 ll primes [1003];
 
-bool prime (int x) {
+bool prime (int x) { // whether x is prime or not
+	// Erathones could be better, but this one is implemented for speedy coding
+	// Maybe that's my inaccuracy, or bad coding skill
 	if (x == 2)
 		return true;
 	FOR(i,2,sqrt (x)+1){
@@ -33,7 +35,7 @@ bool prime (int x) {
 	return true;
 }
 
-int generate (){
+int generate (){ // generate array containing primes
 	int cnt = 0;
 	FOR(i,2,1500){
 		if (prime (i))
@@ -49,6 +51,7 @@ int main () {
 	FOR(i,0,num_prime)
 		F[0][i][0] = 1;
 
+	// Traverse and compute all states 
 	FOR(k,1,15){
 		FOR(j,0,num_prime)
 			FOR (i,0,1121)
@@ -63,6 +66,8 @@ int main () {
 	int n, m, k;
 
 	while (1) {
+		
+		// Then easily determine the solution in O(1)
 		scanf ("%d%d", &n, &k);
 		if (n == 0 && k == 0)
 			break;
