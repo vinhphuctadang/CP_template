@@ -2,10 +2,7 @@
 # from collections import deque # for using deque
 # # deque append, appendleft, pop, popleft
 # from queue import PriorityQueue
-# from bisect import bisect_left as lower_bound, bisect_right as upper_bound # C/C++ liked function
-
-oo = 2000000000
-
+# from bisect import bisect_left as lower_bound, bisect_right as upper_bound # C/C++ alike function
 # # array generation, e.g: __array(10, 5) stands for: int a[10][5], support multi-dimensional array (list-likelihood)
 def __array (*arg):
 
@@ -28,16 +25,20 @@ def __array (*arg):
 			__nxt.append (__main [idx:idx+step])
 			idx += step
 		return __recurse (__nxt, *arg[1:])
-	return __recurse (__main, *arg)
+	return __recurse (__main, *arg[::-1])
 
+
+oo = 2000000000
 
 def main ():
-	# your code goes here
+	# # your code goes here
 	pass
+
+### service generate
+# def handle (nhu):
 
 if __name__=='__main__':
 	main ()
-	
 '''
 Sorry for leaving the caution here
 Template for Competitive Programming with Python 3.x
